@@ -17,9 +17,13 @@ function App() {
 
   return (
     <>
-      <SideBar 
-        
-      
+      <SideBar
+        eyeStatusShow={eyeStatusShow}
+        blinkCountShow={blinkCountShow}
+        bpmShow={bpmShow}
+        setEyeStatusShow={setEyeStatusShow}
+        setBlinkCountShow={setBlinkCountShow}
+        setBpmShow={setBpmShow}
       />
       <Layout
         eyeStatusShow={eyeStatusShow}

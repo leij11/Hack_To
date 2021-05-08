@@ -15,7 +15,7 @@ export default function Layout(props) {
   } = props
 
   return (
-    <div className="container d-flex flex-column justify-content-center align-items-center">
+    <div style={{marginLeft: "200px"}} className="container d-flex flex-column justify-content-center align-items-center">
       <section className="w-100">
         <EyeStatus eyeStatusShow={eyeStatusShow} eyeStatus={eyeStatus}/>
         <BlinkCount blinkCountShow={blinkCountShow} blinkCount={blinkCount}/>
