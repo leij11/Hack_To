@@ -1,0 +1,11 @@
+.Panel {
+  border-radius: 2px;
+  border: 1px solid #eee;
+  padding: 20px;
+  margin: 20px;
+  transition: 300ms;
+}
+
+.Panel:hover {
+  box-shadow: 2px 2px 2px gray;
+}
