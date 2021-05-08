@@ -7,11 +7,13 @@ import { Container } from 'react-bootstrap'
 export default function Layout() {
   return (
     <Container >
-      <div className="d-flex flex-row">
+      <div className="row">
         <EyeStatus />
         <EyeStatus />
         <EyeStatus />
-
+        <EyeStatus />
+        <EyeStatus />
+        <EyeStatus />
       </div>
     </Container>
   )
