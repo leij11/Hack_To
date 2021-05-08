@@ -1,11 +1,10 @@
 import React from 'react'
-import './Panel.module.css'
+import styles from './Panel.module.css'
 
 export default function Panel({ children }) {
   return (
-    <div className="col-lg-4 col-6 border p-3 Panel">
+    <div className={styles.Panel}>
       { children }
-      s
     </div>
   )
 }
