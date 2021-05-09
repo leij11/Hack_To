@@ -36,8 +36,13 @@ export default function Layout(props) {
       }
     getInfo();
   }, []);
-  let eyeStatus = eyeInfo['eye_status']
-  let bpm = eyeInfo['bmp']
+
+  let eyeStatus = "very bad"
+  let bpm = "2"
+  if (eyeInfo) {
+    eyeStatus = eyeInfo['eye_status']
+    bpm = eyeInfo['bmp']
+  }
   //console.log(eyeInfo)
   return (
     <div style={{marginLeft: "200px"}} className="d-flex flex-column justify-content-center align-items-center">
