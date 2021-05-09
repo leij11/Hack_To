@@ -10,7 +10,6 @@ export default function Layout(props) {
     eyeStatusShow,
     blinkCountShow,
     bpmShow,
-    blinkCount,
   } = props
 
   const [eyeInfo,setEyeInfo]= useState([])
@@ -40,9 +39,11 @@ export default function Layout(props) {
 
   let eyeStatus = "bad"
   let bpm = "2"
+  let blinkCount='3'
   if (eyeInfo) {
     eyeStatus = eyeInfo['eye_status']
     bpm = eyeInfo['bmp']
+    blinkCount=eyeInfo['total_bpm']
   }
   //console.log(eyeInfo)
   return (
