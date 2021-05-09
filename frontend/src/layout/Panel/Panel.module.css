@@ -7,5 +7,5 @@
 }
 
 .Panel:hover {
-  box-shadow: 2px 2px 2px gray;
+  box-shadow: 2px 2px 1px #aaa;
 }

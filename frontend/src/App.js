@@ -5,6 +5,7 @@ import { useState } from 'react'
 
 import Layout from './layout/Layout/Layout'
 import SideBar from './components/SideBar/SideBar'
+import { Button } from 'bootstrap';
 
 function App() {
   const [eyeStatusShow, setEyeStatusShow] = useState(true)
@@ -15,15 +16,27 @@ function App() {
   const [blinkCount, setBlinkCount] = useState(123)
   const [bpm, setBpm] = useState(11)
 
+  function eyeStatusShowHandler() {
+    setEyeStatusShow(!eyeStatusShow)
+  }
+
+  function blinkCountShowHandler() {
+    setBlinkCountShow(!blinkCountShow)
+  }
+
+  function bpmShowHandler() {
+    setBpmShow(!bpmShow)
+  }
+
   return (
     <>
       <SideBar
         eyeStatusShow={eyeStatusShow}
         blinkCountShow={blinkCountShow}
         bpmShow={bpmShow}
-        setEyeStatusShow={setEyeStatusShow}
-        setBlinkCountShow={setBlinkCountShow}
-        setBpmShow={setBpmShow}
+        eyeStatusShowHandler={eyeStatusShowHandler}
+        blinkCountShowHandler={blinkCountShowHandler}
+        bpmShowHandler={bpmShowHandler}
       />
       <Layout
         eyeStatusShow={eyeStatusShow}

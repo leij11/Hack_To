@@ -3,9 +3,10 @@ import { Button } from 'react-bootstrap'
 
 export default function SideBarButton({ showStatus, children, onClick }) {
   return (
-    <Button style={{ width: 150, marginTop: 5 }}
-      variant={showStatus ? "success" : "danger"}
-      onClick={() => onClick}
+    <Button
+      style={{ width: 150, marginTop: 5 }}
+      variant={showStatus ? "success" : "outline-success"}
+      onClick={onClick}
     > { children} </Button>
   )
 }
