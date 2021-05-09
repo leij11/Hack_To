@@ -8,7 +8,7 @@ export default function BMP({ bpmShow, bpm }) {
       { bpmShow &&
         <Panel>
           <h1> Blinks Per Minute: </h1>
-          <p> { bpm } </p>
+          <h2> { bpm } </h2>
           <Button> Wa </Button>
         </Panel>
       }

@@ -25,9 +25,8 @@ export default function Recommand() {
     <>
     <Panel>
         <h1> Recommandation</h1>
-        <SymptomDropdown />
         <CardDeck style={{marginTop: "30px"}}>
-            { Symptom=='Red Eye' &&
+            { 
             <Card>
                 <Card.Body>
                 <img src={redeye} width="200" height="200"/>
@@ -40,7 +39,7 @@ export default function Recommand() {
                 </Card.Footer>
             </Card>
             }
-            { Symptom=='Tearing' &&
+            { 
             <Card>
                 <Card.Body>
                 <Card.Title>Tearing</Card.Title>
@@ -65,7 +64,7 @@ export default function Recommand() {
                 </Card.Footer>
             </Card>
             }
-             { Symptom=='Burning' &&
+             { 
             <Card>
                 <Card.Body>
                 <Card.Title>Burning</Card.Title>
@@ -86,7 +85,7 @@ export default function Recommand() {
                 </Card.Footer>
             </Card>
             }
-            { Symptom=='Blurry' &&
+            { 
             <Card>
                 <Card.Body>
                 <Card.Title>Blurry</Card.Title>

@@ -8,7 +8,7 @@ export default function BlinkCount({ blinkCountShow, blinkCount }) {
       { blinkCountShow &&
         <Panel>
           <h1> Total Blinks: </h1>
-          <p> { blinkCount } </p>
+          <h2> { blinkCount } </h2>
           <Button> Woah </Button>
         </Panel>
       }
