@@ -43,7 +43,12 @@ export default function SideBar(props) {
             About
         </Button>
 
-          <Button style={{ width: 150 }}> Get Report </Button>
+        <a
+          style={{ width: 150 }}
+          className="btn btn-primary"
+          href="report.pdf" target="_blank">
+          Get Report
+        </a>
         </div>
       </div>
 
