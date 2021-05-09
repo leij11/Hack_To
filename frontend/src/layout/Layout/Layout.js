@@ -42,7 +42,7 @@ export default function Layout(props) {
   let bpm = "2"
   if (eyeInfo) {
     eyeStatus = eyeInfo['eye_status']
-    bpm = eyeInfo['bmp']
+    bpm = eyeInfo['bpm']
   }
   //console.log(eyeInfo)
   return (
