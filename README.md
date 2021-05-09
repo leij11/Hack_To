@@ -17,16 +17,11 @@ python3 opencv.py
 ```
 
 ### Run flask server
-If on MacOS or Linux
+MacOs or Linux:
 ```
-> export FLASK_APP=server.py
+python3 main.py
 ```
-On Windows:
+Windows:
 ```
-> SET FLASK_APP=server.py
-```
-
-Then run app:
-```
-flask run
+py main.py
 ```
