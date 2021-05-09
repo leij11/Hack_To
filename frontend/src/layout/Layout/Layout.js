@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import EyeStatus from '../../components/EyeStatus/EyeStatus'
 import BlinkCount from '../../components/BlinkCount/BlinkCount'
 import BPM from '../../components/BPM/BPM'
@@ -12,29 +12,30 @@ export default function Layout(props) {
     blinkCount,
   } = props
 
-  const [eyeInfo,setEyeInfo]= useState([])
+  const [eyeInfo, setEyeInfo] = useState([])
 
   useEffect(() => {
-    const getInfo = () => {
-        let source=axios.CancelToken.source();
-        axios
+
+    const interval = setInterval(() => {
+      console.log("send")
+      let source = axios.CancelToken.source();
+      axios
         .get(`http://127.0.0.1:5000/get_status`, {
-            cancelToken: source.token,
-            headers: { 'Content-Type': 'application/json' },
+          cancelToken: source.token,
+          headers: { 'Content-Type': 'application/json' },
         })
         .then(response => {
-            const eyeInfo = response.data.res
-            setEyeInfo(eyeInfo);
+          const eyeInfo = response.data.res
+          setEyeInfo(eyeInfo);
         })
         .catch(error => {
-            if (!axios.isCancel(error)) {
-                setEyeInfo();
-            }
-            console.log(error)
+          if (!axios.isCancel(error)) {
+            setEyeInfo();
+          }
+          console.log(error)
         })
-    
-      }
-    getInfo();
+
+    }, 1000);
   }, []);
 
   let eyeStatus = "very bad"
@@ -45,11 +46,11 @@ export default function Layout(props) {
   }
   //console.log(eyeInfo)
   return (
-    <div style={{marginLeft: "200px"}} className="d-flex flex-column justify-content-center align-items-center">
+    <div style={{ marginLeft: "200px" }} className="d-flex flex-column justify-content-center align-items-center">
       <section className="w-100">
-        <EyeStatus eyeStatusShow={eyeStatusShow} eyeStatus={eyeStatus}/>
-        <BlinkCount blinkCountShow={blinkCountShow} blinkCount={blinkCount}/>
-        <BPM bpmShow={bpmShow} bpm={bpm}/>
+        <EyeStatus eyeStatusShow={eyeStatusShow} eyeStatus={eyeStatus} />
+        <BlinkCount blinkCountShow={blinkCountShow} blinkCount={blinkCount} />
+        <BPM bpmShow={bpmShow} bpm={bpm} />
       </section>
     </div>
   )
