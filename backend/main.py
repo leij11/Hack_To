@@ -34,6 +34,14 @@ def get_status():
     }
     return make_response({'res': res}, 200)
 
+@app.route('/shutdown_camera', methods=['GET'])
+def shutdown_camera():
+    blink.shutdown()
+    res = {
+        'status': 'ok',
+    }
+    return make_response({'res': res}, 200)
+
 
 if __name__ == "__main__":
     p = threading.Thread(target=blink.run, args=(bpm,))

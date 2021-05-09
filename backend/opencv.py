@@ -22,6 +22,7 @@ class Blink:
         self.blink_queue = []
         self.drowsy_window = []
         self.condition = 'good'
+        self.keep_recording = True
 
     def get_bpm(self):
         return self.bpm
@@ -32,14 +33,17 @@ class Blink:
     def get_condition(self):
         return self.condition
 
+    def shutdown(self):
+        self.keep_recording = False
+
     def run(self, bpm):
         # Capture video and set up dlib.
         cap = cv2.VideoCapture(0)
         hog_face_detector = dlib.get_frontal_face_detector()
         dlib_facelandmark = dlib.shape_predictor("data_files/shape_predictor_68_face_landmarks.dat")
+        self.keep_recording = True
 
-
-        while True:
+        while self.keep_recording:
             # Determine blinks per min
             cur_time = time.time()
             #blink_queue = [x for x in self.blink_queue if cur_time - x < 60]
