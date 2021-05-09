@@ -48,13 +48,13 @@ export default function Layout(props) {
   }
   //console.log(eyeInfo)
   return (
-    <div style={{ marginLeft: "200px" }} className="d-flex flex-column justify-content-center align-items-center">
+    <div style={{ marginLeft: "200px" }} className="d-flex flex-row justify-content-center">
       <section className="w-100">
         <EyeStatus eyeStatusShow={eyeStatusShow} eyeStatus={eyeStatus}/>
         <BlinkCount blinkCountShow={blinkCountShow} blinkCount={blinkCount}/>
         <BPM bpmShow={bpmShow} bpm={bpm}/>
-        <Recommand />
       </section>
+      <Recommand />
     </div>
   )
 }
