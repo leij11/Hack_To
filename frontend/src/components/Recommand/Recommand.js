@@ -13,6 +13,8 @@ export default function Recommand() {
         setSymptom(e.target.value);
     }
 
+
+    // test
     const supported_Symptoms = ['Red Eye', 'Tearing', 'Burning', 'Blurry']
 
     const SymptomDropdown = () => (
