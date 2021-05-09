@@ -5,15 +5,13 @@ from scipy.spatial import distance
 
 import time
 
-print('test')
-
-
 def calculate_EAR(eye):
     A = distance.euclidean(eye[1], eye[5])
     B = distance.euclidean(eye[2], eye[4])
     C = distance.euclidean(eye[0], eye[3])
     ear_aspect_ratio = (A+B)/(2.0*C)
     return ear_aspect_ratio
+
 
 class Blink:
     def __init__(self):
@@ -27,7 +25,7 @@ class Blink:
     def get_bpm(self):
         return self.bpm
 
-    def run(self):
+    def run(self, bpm):
         # Capture video and set up dlib.
         cap = cv2.VideoCapture(0)
         hog_face_detector = dlib.get_frontal_face_detector()
@@ -39,6 +37,7 @@ class Blink:
             cur_time = time.time()
             blink_queue = [x for x in self.blink_queue if cur_time - x < 60]
             self.bpm = len(self.blink_queue)
+            bpm = self.bpm
             #if cur_time - start_time >= 60:
             #    blinks_pm = cur_bpm
             #    cur_bpm = 0
