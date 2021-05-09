@@ -38,7 +38,7 @@ export default function Layout(props) {
     getInfo();
   }, []);
 
-  let eyeStatus = "very bad"
+  let eyeStatus = "bad"
   let bpm = "2"
   if (eyeInfo) {
     eyeStatus = eyeInfo['eye_status']
@@ -51,9 +51,7 @@ export default function Layout(props) {
         <EyeStatus eyeStatusShow={eyeStatusShow} eyeStatus={eyeStatus}/>
         <BlinkCount blinkCountShow={blinkCountShow} blinkCount={blinkCount}/>
         <BPM bpmShow={bpmShow} bpm={bpm}/>
-        <div style={{marginLeft: "20px"}} className=" align-items-center">
-           <Recommand />
-        </div>
+        <Recommand />
       </section>
     </div>
   )

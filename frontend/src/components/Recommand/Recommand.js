@@ -1,5 +1,11 @@
 import React, { useState,useEffect } from "react";
-import { CardDeck,Card } from 'react-bootstrap';
+import { CardDeck,Card} from 'react-bootstrap';
+import Panel from '../../layout/Panel/Panel';
+import blurry from './blurry.jpeg';
+import redeye from './redeye.jpeg';
+import burning from './burning.jpeg';
+import tearing from './tearing.jpeg';
+
 export default function Recommand() {
     const [Symptom, setSymptom] = useState("")
 
@@ -17,12 +23,14 @@ export default function Recommand() {
     )
   return (
     <>
+    <Panel>
         <h1> Recommandation</h1>
         <SymptomDropdown />
         <CardDeck style={{marginTop: "30px"}}>
             { Symptom=='Red Eye' &&
             <Card>
                 <Card.Body>
+                <img src={redeye} width="200" height="200"/>
                 <Card.Title>Red Eye</Card.Title>
                 <input style={{marginRight: "20px"}} type="checkbox" />
                 <label> Use Eye Drop</label>
@@ -36,6 +44,7 @@ export default function Recommand() {
             <Card>
                 <Card.Body>
                 <Card.Title>Tearing</Card.Title>
+                <img src={tearing} width="200" height="200"/>
                 <div className="d-flex flex-column justify-content-center align-items-left">
                     <label> 
                         <input style={{marginRight: "20px"}} type="checkbox" /> 
@@ -60,6 +69,7 @@ export default function Recommand() {
             <Card>
                 <Card.Body>
                 <Card.Title>Burning</Card.Title>
+                <img src={burning} width="200" height="100"/>
                 <div className="d-flex flex-column justify-content-center align-items-left">
                     <label> 
                         <input style={{marginRight: "20px"}} type="checkbox" /> 
@@ -80,7 +90,8 @@ export default function Recommand() {
             <Card>
                 <Card.Body>
                 <Card.Title>Blurry</Card.Title>
-                <div className="d-flex flex-column justify-content-center align-items-left">
+                <img src={blurry} width="300" height="200"/>
+                <div style={{marginTop: "20px"}} className="d-flex flex-column justify-content-center align-items-left">
                     <label>
                         <input style={{marginRight: "20px"}} type="checkbox" />
                         Take a break from screen for 5 minutes
@@ -93,6 +104,7 @@ export default function Recommand() {
             </Card>
             }
             </CardDeck>
+            </Panel>
     </>
   )
 }
