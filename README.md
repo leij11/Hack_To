@@ -2,6 +2,7 @@
 Stack: OpenCV, Node, Flask, React
 
 ## frontend
+See README.md in frontend/ 
 
 ## backend:
 Create a virtual environment and activate it: https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/
