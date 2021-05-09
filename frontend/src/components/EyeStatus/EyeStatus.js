@@ -13,14 +13,14 @@ export default function EyeStatus({ eyeStatusShow,eyeStatus }) {
           {eyeStatus=='bad' &&
           <div>
             <span aria-label="Bad" role="img"> 😣</span>
-            <p>  </p>
+            <h2>{eyeStatus}</h2>
             <Button variant="outline-warning"> See a doctor </Button>
           </div>
           }
           {eyeStatus=='good' &&
           <div>
             <span aria-label="Good" role="img"> 👁</span>
-            <p> </p>
+            <h2>{eyeStatus}</h2>
             <Button variant="outline-success"> Congrats ! Healthy Eyes  </Button>
           </div>
           }
