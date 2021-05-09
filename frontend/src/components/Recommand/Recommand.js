@@ -18,7 +18,7 @@ export default function Recommand() {
     const supported_Symptoms = ['Red Eye', 'Tearing', 'Burning', 'Blurry']
 
     const SymptomDropdown = () => (
-        <select class="form-select border-2 border-gray-300 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer" value={Symptom} onChange={SymptomSelectHandler} >
+        <select className="form-select border-2 border-gray-300 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer" value={Symptom} onChange={SymptomSelectHandler} >
             <option value="">Please choose a Symptoms</option>
             {supported_Symptoms.map(Symptom => <option key={Symptom}>{Symptom}</option>)}
         </select>

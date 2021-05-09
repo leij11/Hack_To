@@ -8,8 +8,12 @@ export default function BlinkCount({ blinkCountShow, blinkCount }) {
       { blinkCountShow &&
         <Panel>
           <h1> Total Blinks: </h1>
-          <h2> { blinkCount } </h2>
-          <Button> Woah </Button>
+          <h2> {blinkCount} </h2>
+          <a
+            className="btn btn-outline-warning"
+            href="https://www.healthline.com/health/how-many-times-do-you-blink-a-day">
+            See target total blinks
+          </a>
         </Panel>
       }
     </>
