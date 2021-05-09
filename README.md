@@ -15,3 +15,13 @@ Run program:
 ```
 python3 opencv.py
 ```
+
+### Run flask server
+MacOs or Linux:
+```
+python3 main.py
+```
+Windows:
+```
+py main.py
+```

@@ -1,8 +1,10 @@
-import React from 'react'
-import Panel from '../../layout/Panel/Panel'
+import React, { useState,useEffect } from "react";
+import Panel from '../../layout/Panel/Panel';
 import { Button } from 'react-bootstrap';
+import axios from 'axios';
 
-export default function EyeStatus({ eyeStatusShow, eyeStatus }) {
+export default function EyeStatus({ eyeStatusShow,eyeStatus }) {
+
   return (
     <>
       { eyeStatusShow &&
