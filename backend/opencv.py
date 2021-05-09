@@ -17,13 +17,20 @@ class Blink:
     def __init__(self):
         self.start_time = time.time()
         self.bpm = 0
-        self.cur_bpm = 0
+        self.total_bpm = 0
         self.eye_closed = False
         self.blink_queue = []
-        self.good_condition = True
+        self.drowsy_window = []
+        self.condition = 'good'
 
     def get_bpm(self):
         return self.bpm
+
+    def get_total_bpm(self):
+        return self.total_bpm
+
+    def get_condition(self):
+        return self.condition
 
     def run(self, bpm):
         # Capture video and set up dlib.
@@ -35,9 +42,19 @@ class Blink:
         while True:
             # Determine blinks per min
             cur_time = time.time()
-            blink_queue = [x for x in self.blink_queue if cur_time - x < 60]
-            self.bpm = len(self.blink_queue)
+            #blink_queue = [x for x in self.blink_queue if cur_time - x < 60]
+            #self.bpm = len(self.blink_queue)
+            self.bpm = round(self.total_bpm * 60 / (cur_time - self.start_time))
             bpm = self.bpm
+
+            drowsy_window = [x for x in self.drowsy_window if cur_time - x < 10]
+            if len(drowsy_window) >=5:
+                self.condition = 'bad'
+            elif self.bpm < 15:
+                self.condition = 'bad'
+            else:
+                self.condition = 'good'
+
             #if cur_time - start_time >= 60:
             #    blinks_pm = cur_bpm
             #    cur_bpm = 0
@@ -85,19 +102,25 @@ class Blink:
                 # Default threshold for drowsiness
                 if EAR < 0.26:
                     cv2.putText(frame,"DROWSY",(20,100), cv2.FONT_HERSHEY_SIMPLEX,2,(0,0,255),4)
-                    cv2.putText(frame,"Are you Sleepy?",(20,400), cv2.FONT_HERSHEY_SIMPLEX,2,(0,0,255),4)
+                    #cv2.putText(frame,"Are you Sleepy?",(20,400), cv2.FONT_HERSHEY_SIMPLEX,2,(0,0,255),4)
                     #print("Drowsy")
+                    if self.drowsy_window and (round(self.drowsy_window[-1]) != round(cur_time)):
+                        self.drowsy_window.append(cur_time)
+                    elif not self.drowsy_window:
+                        self.drowsy_window.append(cur_time)
                 # Threshold for blinking
                 if EAR < 0.2 and not self.eye_closed:
-                    self.cur_bpm += 1
-                    self.blink_queue.append(time.time())
+                    self.total_bpm += 1
+                    self.blink_queue.append(cur_time)
                     self.eye_closed = True
                 elif EAR >= 0.2:
                     self.eye_closed = False
                 #print(EAR)
 
             # Display GUI frame
-            cv2.putText(frame,f'BPM: {self.bpm}',(60,150), cv2.FONT_HERSHEY_SIMPLEX,1,(0,0,255),4)
+            cv2.putText(frame,f'BPM: {self.bpm}',(360,50), cv2.FONT_HERSHEY_SIMPLEX,1,(0,0,255),4)
+            cv2.putText(frame,f'Total BPM: {self.total_bpm}',(360,100), cv2.FONT_HERSHEY_SIMPLEX,1,(0,0,255),4)
+            cv2.putText(frame,f'Condition: {self.condition}',(180,350), cv2.FONT_HERSHEY_SIMPLEX,1,(0,0,255),4)
             cv2.imshow("Are you Sleepy", frame)
 
             key = cv2.waitKey(1)

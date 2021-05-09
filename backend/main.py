@@ -28,10 +28,12 @@ def index():
 @app.route('/get_status', methods=['GET', 'POST'])
 def get_status():
     res = {
-        'eye_status': 'good',
+        'eye_status': blink.get_condition(),
         'bpm': blink.get_bpm(),
+        'total_bpm': blink.get_total_bpm(),
     }
     return make_response({'res': res}, 200)
+
 
 if __name__ == "__main__":
     p = threading.Thread(target=blink.run, args=(bpm,))
