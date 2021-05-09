@@ -43,7 +43,7 @@ export default function Layout(props) {
   let blinkCount='3'
   if (eyeInfo) {
     eyeStatus = eyeInfo['eye_status']
-    bpm = eyeInfo['bmp']
+    bpm = eyeInfo['bpm']
     blinkCount=eyeInfo['total_bpm']
   }
   //console.log(eyeInfo)
