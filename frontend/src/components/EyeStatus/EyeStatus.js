@@ -8,6 +8,7 @@ export default function EyeStatus({ eyeStatusShow, eyeStatus }) {
       { eyeStatusShow &&
         <Panel>
           <h1> Eye Status: </h1>
+          <span aria-label="Very Bad" role="img"> 😩</span>
           <p> { eyeStatus } </p>
           <Button> See a doctor </Button>
         </Panel>
