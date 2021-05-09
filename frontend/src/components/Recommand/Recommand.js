@@ -26,7 +26,7 @@ export default function Recommand() {
     return (
         <>
             <Panel>
-                <h1> Recommandation</h1>
+                <h1> Recommendation</h1>
                 <SymptomDropdown />
                 <CardDeck style={{ marginTop: "30px" }}>
                     {Symptom == 'Red Eye' &&

@@ -11,7 +11,8 @@ export default function BMP({ bpmShow, bpm }) {
           <h2> { bpm } </h2>
           <a
             className="btn btn-outline-warning"
-            href="https://www.healthline.com/health/how-many-times-do-you-blink-a-day">
+            href="https://www.healthline.com/health/how-many-times-do-you-blink-a-day"
+            target="_blank">
             See target blinks per minute
           </a>
         </Panel>

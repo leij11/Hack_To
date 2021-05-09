@@ -13,7 +13,7 @@ export default function EyeStatus({ eyeStatusShow, eyeStatus }) {
             <div>
               <span aria-label="Bad" role="img"> 😣</span>
               <h2>{eyeStatus.charAt(0).toUpperCase() + eyeStatus.slice(1)}</h2>
-              <a className="btn btn-outline-warning" href="https://www.torontoeyeclinic.com/"> See a doctor </a>
+              <a className="btn btn-outline-warning" href="https://www.torontoeyeclinic.com/" target="_blank"> See a doctor </a>
             </div>
           }
           {eyeStatus == 'good' &&

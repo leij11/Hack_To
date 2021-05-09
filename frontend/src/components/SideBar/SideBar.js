@@ -52,7 +52,11 @@ export default function SideBar(props) {
           <Modal.Title> What is iBlink? </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          With COVID, we can’t seem to take our eyes off the screen for even second without missing an online doctor’s appointment, friday night among us with friends, or after 5 long years, our own convocation ceremony! And the list goes on!
+          Within 6 months from the start of COVID, search trends for “dry eye syndrome” has doubled. I know I’m guilty. So, we built iBlink
+
+
+
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
