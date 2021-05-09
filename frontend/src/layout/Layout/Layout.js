@@ -2,6 +2,7 @@ import React, { useState,useEffect } from "react";
 import EyeStatus from '../../components/EyeStatus/EyeStatus'
 import BlinkCount from '../../components/BlinkCount/BlinkCount'
 import BPM from '../../components/BPM/BPM'
+import Recommand from '../../components/Recommand/Recommand'
 import axios from 'axios';
 
 export default function Layout(props) {
@@ -50,6 +51,9 @@ export default function Layout(props) {
         <EyeStatus eyeStatusShow={eyeStatusShow} eyeStatus={eyeStatus}/>
         <BlinkCount blinkCountShow={blinkCountShow} blinkCount={blinkCount}/>
         <BPM bpmShow={bpmShow} bpm={bpm}/>
+        <div style={{marginLeft: "20px"}} className=" align-items-center">
+           <Recommand />
+        </div>
       </section>
     </div>
   )
