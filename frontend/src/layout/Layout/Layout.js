@@ -1,19 +1,44 @@
-import React from 'react'
+import React, { useState,useEffect } from "react";
 import EyeStatus from '../../components/EyeStatus/EyeStatus'
 import BlinkCount from '../../components/BlinkCount/BlinkCount'
 import BPM from '../../components/BPM/BPM'
-
+import axios from 'axios';
 
 export default function Layout(props) {
   const {
     eyeStatusShow,
     blinkCountShow,
     bpmShow,
-    eyeStatus,
     blinkCount,
-    bpm
   } = props
 
+  const [eyeInfo,setEyeInfo]= useState([])
+
+  useEffect(() => {
+    const getInfo = () => {
+        let source=axios.CancelToken.source();
+        axios
+        .get(`http://127.0.0.1:5000/get_status`, {
+            cancelToken: source.token,
+            headers: { 'Content-Type': 'application/json' },
+        })
+        .then(response => {
+            const eyeInfo = response.data.res
+            setEyeInfo(eyeInfo);
+        })
+        .catch(error => {
+            if (!axios.isCancel(error)) {
+                setEyeInfo();
+            }
+            console.log(error)
+        })
+    
+      }
+    getInfo();
+  }, []);
+  let eyeStatus = eyeInfo['eye_status']
+  let bpm = eyeInfo['bmp']
+  //console.log(eyeInfo)
   return (
     <div style={{marginLeft: "200px"}} className="container d-flex flex-column justify-content-center align-items-center">
       <section className="w-100">
