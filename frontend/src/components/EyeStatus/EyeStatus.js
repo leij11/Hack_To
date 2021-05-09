@@ -10,9 +10,20 @@ export default function EyeStatus({ eyeStatusShow,eyeStatus }) {
       { eyeStatusShow &&
         <Panel>
           <h1> Eye Status: </h1>
-          <span aria-label="Very Bad" role="img"> 😩</span>
-          <p> { eyeStatus } </p>
-          <Button> See a doctor </Button>
+          {eyeStatus=='bad' &&
+          <div>
+            <span aria-label="Bad" role="img"> 😣</span>
+            <p>  </p>
+            <Button variant="outline-warning"> See a doctor </Button>
+          </div>
+          }
+          {eyeStatus=='good' &&
+          <div>
+            <span aria-label="Good" role="img"> 👁</span>
+            <p> </p>
+            <Button variant="outline-success"> Congrats ! Healthy Eyes  </Button>
+          </div>
+          }
         </Panel>
       }
     </>
